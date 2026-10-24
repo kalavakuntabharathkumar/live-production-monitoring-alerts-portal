@@ -1,0 +1,20 @@
+{
+  "name": "live-production-monitoring-alerts-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Live production line monitoring dashboard with WebSocket updates",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "cypress": "^13.17.0"
+  }
+}

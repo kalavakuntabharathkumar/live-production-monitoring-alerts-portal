@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>LineWatch | Production Monitor</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-icon">LW</div><div><strong>LineWatch</strong><span>Factory operations</span></div></div>
+      <div class="nav-label">WORKSPACE</div>
+      <a class="nav-item active" href="#overview"><span>▦</span> Overview</a>
+      <a class="nav-item" href="#lines"><span>◫</span> Production lines</a>
+      <a class="nav-item" href="#alerts"><span>◉</span> Alerts <b id="nav-alert-count">1</b></a>
+      <div class="sidebar-bottom"><div class="plant-avatar">PL</div><div><strong>Plant 01</strong><span>South facility</span></div><span class="chevron">⌄</span></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div class="mobile-brand">LineWatch</div><div class="breadcrumb">Operations <span>/</span> <strong>Live overview</strong></div><div class="top-actions"><span class="connection"><i id="connection-dot"></i><span id="connection-label">Connecting…</span></span><button id="role-toggle" class="role-button">View: Supervisor ▾</button><div class="user-avatar">SV</div></div></header>
+      <section class="welcome" id="overview"><div><div class="eyebrow">MONDAY, OCTOBER 26, 2026</div><h1>Production overview</h1><p>Live performance across all 8 production lines.</p></div><div class="updated">Last update <strong id="last-updated">Waiting for data…</strong></div></section>
+      <section class="summary-grid">
+        <article class="summary-card"><div class="summary-top"><span>Total output</span><span class="summary-icon blue">↗</span></div><strong id="total-output">—</strong><small><span class="positive">Live</span> units produced this shift</small></article>
+        <article class="summary-card"><div class="summary-top"><span>Active lines</span><span class="summary-icon green">◉</span></div><strong id="active-lines">—</strong><small>Out of 8 production lines</small></article>
+        <article class="summary-card"><div class="summary-top"><span>Lines to watch</span><span class="summary-icon amber">!</span></div><strong id="warning-lines">—</strong><small>Below expected production pace</small></article>
+        <article class="summary-card"><div class="summary-top"><span>Shift completion</span><span class="summary-icon purple">◷</span></div><strong id="completion">—</strong><small>Average of line targets</small></article>
+      </section>
+      <section class="section-heading" id="lines"><div><h2>Production lines</h2><p>Output is refreshed automatically every 2 seconds.</p></div><div class="filters"><input id="line-search" type="search" placeholder="Search lines…" aria-label="Search production lines"><select id="status-filter" aria-label="Filter line status"><option value="all">All statuses</option><option value="running">Running</option><option value="warning">Needs attention</option><option value="complete">Target reached</option></select></div></section>
+      <section id="line-grid" class="line-grid" aria-live="polite"><div class="loading">Connecting to production stream…</div></section>
+      <section class="alerts-section" id="alerts"><div class="section-heading"><div><h2>Recent alerts</h2><p>Items requiring a supervisor's attention.</p></div><span class="alert-count" id="alert-count">1 open</span></div><div class="alert-list" id="alert-list"><div class="alert-row"><span class="alert-symbol">!</span><div><strong>Production line 6 is below target pace</strong><p>Review line performance and check for a station delay.</p></div><span class="alert-time">Just now</span></div></div></section>
+      <footer>LineWatch Production Monitoring <span>Demo stream · Not connected to factory equipment</span></footer>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

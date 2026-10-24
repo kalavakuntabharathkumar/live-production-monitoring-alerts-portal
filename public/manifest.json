@@ -1,0 +1,9 @@
+{
+  "name": "LineWatch Production Monitor",
+  "short_name": "LineWatch",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f8fc",
+  "theme_color": "#101827",
+  "icons": []
+}

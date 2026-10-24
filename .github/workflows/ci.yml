@@ -1,0 +1,17 @@
+name: CI
+on:
+  push:
+  pull_request:
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm install
+      - run: npm start > server.log 2>&1 &
+      - run: npx wait-on http://localhost:3000/ || (sleep 5 && curl -f http://localhost:3000/)
+      - run: npm run test:e2e
